@@ -30,18 +30,28 @@ class Location
 
 class Message{
     
+    int sender_id;
+    int receiver_id;
+    
+    public Message(int sender_id,int receiver_id)
+    {
+        this.sender_id=sender_id;
+        this.receiver_id=receiver_id;
+    }
 }
 
 class Node{
     int id;
     Location location;
-    int batteryPower;
+    double batteryPower;
+    double antennaPower;
     
-    public Node(int id,Location location,int batteryPower)
+    public Node(int id,Location location,double batteryPower,double antennaPower)
     {
         this.id=id;
         this.location=location;
         this.batteryPower=batteryPower;
+        this.antennaPower=antennaPower;
     }
      
     public Location getLocation()
@@ -76,6 +86,10 @@ class Node{
     public void broadcast(Message msg)
    {
    }
+    
+      public void forward(Message msg)
+   {
+   }
    
    public void send(Message msg)
    {
@@ -84,7 +98,14 @@ class Node{
    
    public void receive(Message msg)
    {
-       
+       if (this.id==msg.receiver_id)
+       {
+           
+       }
+       else 
+       {
+           forward(msg);
+       }
    }
 }
 
