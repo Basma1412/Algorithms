@@ -105,10 +105,15 @@ class Node {
 
     public void receive(Message msg) {
         if (this.id == msg.receiver_id) {
-
+                confirmReceiving();
         } else {
             forward(msg);
         }
+    }
+    
+    public void confirmReceiving()
+    {
+        
     }
 }
 
