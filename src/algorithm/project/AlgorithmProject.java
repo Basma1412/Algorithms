@@ -85,6 +85,14 @@ class Node{
    
     public void broadcast(Message msg)
    {
+       if (this.batteryPower>0)
+       {
+         this.batteryPower--;  
+       }
+       else 
+       {
+           
+       }
    }
     
       public void forward(Message msg)
